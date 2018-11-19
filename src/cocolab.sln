@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cocolab", "cocolab\cocolab.csproj", "{A4C67EB5-B4C0-4589-8F2E-1794E829FEBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cocolab.Tests", "cocolab.Tests\cocolab.Tests.csproj", "{E450EBE9-E340-44B6-9A75-FE8164E3B154}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4C67EB5-B4C0-4589-8F2E-1794E829FEBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4C67EB5-B4C0-4589-8F2E-1794E829FEBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4C67EB5-B4C0-4589-8F2E-1794E829FEBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4C67EB5-B4C0-4589-8F2E-1794E829FEBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E450EBE9-E340-44B6-9A75-FE8164E3B154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E450EBE9-E340-44B6-9A75-FE8164E3B154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E450EBE9-E340-44B6-9A75-FE8164E3B154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E450EBE9-E340-44B6-9A75-FE8164E3B154}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
