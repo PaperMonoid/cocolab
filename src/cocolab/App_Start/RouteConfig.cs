@@ -16,6 +16,12 @@ namespace cocolab
             );
 
             routes.MapRoute(
+                name: "Alumno",
+                url: "Alumno/{action}",
+                defaults: new { controller = "Alumno", action = "Index" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
