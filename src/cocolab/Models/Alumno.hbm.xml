@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2" 
+   assembly = "NHibernateDemoApp" namespace = "NHibernateDemoApp">
+   <class name="Alumno"> 
+      <id name="id_alumno">
+        <generator class="native"/> 
+      </id>
+      <property name="nombre"/> 
+      <property name="apellido_paterno"/>
+      <property name="apellido_materno"/> 
+      <property name="id_carrera"/>
+      <property name="estatus_alumno"/> 
+      <property name="fecha_registro_alumno"/>
+      <property name="fecha_modificacion_alumno"/> 
+   </class> 
+</hibernate-mapping>
