@@ -2,21 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using NHibernate;
 
 namespace cocolab.Models
 {
     public class Alumno
     {
-        public int id_alumno { get; set; }
-        public string nombre { get; set; }
-        public string apellido_paterno { get; set; }
-        public string apellido_materno { get; set; }
-        public string id_carrera { get; set; }
-        public bool estatus_alumno { get; set; }
-        public DateTime fecha_registro_alumno {get; set;}
-        public DateTime fecha_modificacion_alumno { get; set; } 
-
-        
+        public virtual long NoControl { get; set; }
+        public virtual string Nombre { get; set; }
+        public virtual string ApellidoPaterno { get; set; }
+        public virtual string ApellidoMaterno { get; set; }
+        public virtual string IdCarrera { get; set; }
+        public virtual bool Estatus { get; set; }
+        public virtual DateTime FechaRegistro { get; set;}
+        public virtual DateTime FechaModificacion { get; set; }
     }
 }

@@ -1,16 +1,30 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2" 
-   assembly = "NHibernateDemoApp" namespace = "NHibernateDemoApp">
-   <class name="Alumno"> 
-      <id name="id_alumno">
-        <generator class="native"/> 
+   assembly="cocolab" namespace="cocolab.Models">
+   <class name="Alumno" table='"Alumno"'> 
+      <id name="NoControl">
+        <column name='"No_Control_alumno"' not-null="true"/>
       </id>
-      <property name="nombre"/> 
-      <property name="apellido_paterno"/>
-      <property name="apellido_materno"/> 
-      <property name="id_carrera"/>
-      <property name="estatus_alumno"/> 
-      <property name="fecha_registro_alumno"/>
-      <property name="fecha_modificacion_alumno"/> 
+      <property name="Nombre">
+        <column name='"Nombre_alumno"'/>
+      </property> 
+      <property name="ApellidoPaterno">
+        <column name='"Ape_Pat_alumno"'/>
+      </property>
+      <property name="ApellidoMaterno">
+        <column name='"Apellido_Mat_alumno"'/>
+      </property>
+      <property name="IdCarrera">
+        <column name='"Id_carrera"'/>
+      </property>
+      <property name="Estatus">
+        <column name='"Estatus_alumno"'/>
+      </property>
+      <property name="FechaRegistro">
+        <column name='"Fecha_Regis_alumno"'/>
+      </property> 
+      <property name="FechaModificacion">
+        <column name='"Fecha_Mod_alumno"'/>
+      </property>  
    </class> 
 </hibernate-mapping>

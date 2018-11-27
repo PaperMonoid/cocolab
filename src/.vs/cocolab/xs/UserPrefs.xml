@@ -1,10 +1,9 @@
 ﻿<Properties StartupConfiguration="{A4C67EB5-B4C0-4589-8F2E-1794E829FEBE}|">
   <MonoDevelop.Ide.ItemProperties.cocolab PreferredExecutionTarget="firefox" />
   <MonoDevelop.Ide.ItemProperties.cocolab.Tests FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="cocolab/App_Start/RouteConfig.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="cocolab/Web.config">
     <Files>
-      <File FileName="cocolab/Controllers/AlumnoController.cs" Line="32" Column="1" />
-      <File FileName="cocolab/App_Start/RouteConfig.cs" Line="20" Column="40" />
+      <File FileName="cocolab/Web.config" Line="13" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
