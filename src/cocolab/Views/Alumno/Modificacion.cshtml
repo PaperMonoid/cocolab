@@ -1,0 +1,43 @@
+﻿@using cocolab.Models
+@{
+    ViewBag.Title = "Moficación alumno";
+    Layout = "~/Views/Shared/_Modificacion.cshtml";
+    Alumno alumno = ViewData["alumno"] as Alumno;
+}
+<form action="/alumno/modificacion" method="POST">
+    <div class="form-group">
+        <label for="NoControl">Número de control</label>
+        <input class="form-control" type="text" name="NoControl" value="@alumno.NoControl" readonly=""/>
+    </div>
+    <div class="form-group">
+        <label for="Nombre">Nombre</label>
+        <input class="form-control" type="text" name="Nombre" value="@alumno.Nombre" autofocus=""/>
+    </div>
+    <div class="form-group">
+        <label for="ApellidoPaterno">Apellido Paterno</label>
+        <input class="form-control" type="text" name="ApellidoPaterno" value="@alumno.ApellidoPaterno"/>
+    </div>
+    <div class="form-group">
+        <label for="ApellidoMaterno">Apellido Materno</label>
+        <input class="form-control" type="text" name="ApellidoMaterno" value="@alumno.ApellidoMaterno"/>
+    </div>
+    <div class="form-group">
+        <label for="IdCarrera">Id Carrera</label>
+        <input class="form-control" type="text" name="IdCarrera" value="@alumno.IdCarrera"/>
+    </div>
+    <div class="form-group">
+        <label for="Estatus">Estatus</label>
+        @if (alumno.Estatus) 
+        {
+        <input class="form-control" type="checkbox" name="Estatus" value="true" checked=""/>
+        }
+        else
+        {
+        <input class="form-control" type="checkbox" name="Estatus" value="true"/>
+        }
+    </div>
+    <input type="text"  name="FechaRegistro" value="@alumno.FechaRegistro" hidden=""/>
+    <div class="form-group">
+        <input class="form-control" type="submit" value="Enviar"/>
+    </div>
+</form>

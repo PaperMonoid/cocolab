@@ -9,53 +9,123 @@ using NHibernate.Cfg;
 
 namespace cocolab.Controllers
 {
+    [RoutePrefix("alumno")]
     public class AlumnoController : Controller
     {
-        public string Index()
+        [HttpGet]
+        [Route("alta")]
+        public ActionResult Alta()
         {
-            return "placeholder index";
+            return View();
         }
 
-        public string Alta()
+        [HttpPost]
+        [Route("alta")]
+        public ActionResult Alta(Alumno alumno)
         {
-            ISessionFactory sessionFactory =
-                new Configuration().Configure().BuildSessionFactory();
-            ISession session = sessionFactory.OpenSession();
+            ISession session = NHibernateHelper.GetCurrentSession();
             try
             {
                 using (ITransaction tx = session.BeginTransaction())
                 {
-                    var alumno = new Alumno
-                    {
-                        NoControl = 1212034,
-                        Nombre = "Kim",
-                        ApellidoPaterno = "Da",
-                        ApellidoMaterno = "Hyun",
-                        IdCarrera = "ISIC",
-                        Estatus = true,
-                        FechaRegistro = DateTime.Now,
-                        FechaModificacion = DateTime.Now
-                    };
-
+                    alumno.FechaRegistro = DateTime.Now;
+                    alumno.FechaModificacion = null;
                     session.Save(alumno);
                     tx.Commit();
                 }
             }
             finally
             {
-                session.Close();
+                NHibernateHelper.CloseSession();
             }
-            return "placeholder alta";
+            return RedirectToAction("Index");
         }
 
-        public string Baja()
+        [HttpGet]
+        [Route("baja/{NoControl}")]
+        public ActionResult Baja(long NoControl)
         {
-            return "placeholder baja";
+            ISession session = NHibernateHelper.GetCurrentSession();
+            try
+            {
+                using (ITransaction tx = session.BeginTransaction())
+                {
+
+                    Alumno alumno = session.Query<Alumno>()
+                                           .Where(x => x.NoControl == NoControl)
+                                           .First();
+                    if (alumno != null)
+                    {
+                        session.Delete(alumno);
+                    }
+                    tx.Commit();
+                }
+            }
+            finally
+            {
+                NHibernateHelper.CloseSession();
+            }
+            return RedirectToAction("Index");
         }
 
-        public string Consulta()
+        [HttpGet]
+        [Route("modificacion/{NoControl}")]
+        public ActionResult Modificacion(long NoControl)
         {
-            return "placeholder consulta";
+            ISession session = NHibernateHelper.GetCurrentSession();
+            try
+            {
+                using (ITransaction tx = session.BeginTransaction())
+                {
+
+                    Alumno alumno = session.Query<Alumno>()
+                                           .Where(x => x.NoControl == NoControl)
+                                           .First();
+                    if (alumno != null)
+                    {
+                        ViewData["alumno"] = alumno;
+                    }
+                    tx.Commit();
+                }
+            }
+            finally
+            {
+                NHibernateHelper.CloseSession();
+            }
+            return View();
+        }
+
+        [HttpPost]
+        [Route("modificacion")]
+        public ActionResult Modificacion(Alumno alumno)
+        {
+            ISession session = NHibernateHelper.GetCurrentSession();
+            try
+            {
+                using (ITransaction tx = session.BeginTransaction())
+                {
+                    Console.WriteLine(alumno.Estatus);
+                    alumno.FechaModificacion = DateTime.Now;
+                    session.Update(alumno);
+                    tx.Commit();
+                }
+            }
+            finally
+            {
+                NHibernateHelper.CloseSession();
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        [Route("")]
+        public ActionResult Index()
+        {
+            ISession session = NHibernateHelper.GetCurrentSession();
+            List<Alumno> alumnos = session.Query<Alumno>().ToList();
+            NHibernateHelper.CloseSession();
+            ViewData["alumnos"] = alumnos;
+            return View();
         }
     }
 }

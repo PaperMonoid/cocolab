@@ -14,6 +14,6 @@ namespace cocolab.Models
         public virtual string IdCarrera { get; set; }
         public virtual bool Estatus { get; set; }
         public virtual DateTime FechaRegistro { get; set;}
-        public virtual DateTime FechaModificacion { get; set; }
+        public virtual DateTime? FechaModificacion { get; set; }
     }
 }

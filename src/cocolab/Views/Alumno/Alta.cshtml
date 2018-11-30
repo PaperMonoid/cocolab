@@ -1,0 +1,33 @@
+﻿@{    
+    ViewBag.Title = "Alta alumno";
+    Layout = "~/Views/Shared/_Alta.cshtml";
+}
+<form action="/alumno/alta" method="POST">
+    <div class="form-group">
+        <label for="NoControl">Número de control</label>
+        <input class="form-control" type="text" name="NoControl" autofocus=""/>
+    </div>
+    <div class="form-group">
+        <label for="Nombre">Nombre</label>
+        <input class="form-control" type="text" name="Nombre"/>
+    </div>
+    <div class="form-group">
+        <label for="ApellidoPaterno">Apellido Paterno</label>
+        <input class="form-control" type="text" name="ApellidoPaterno"/>
+    </div>
+    <div class="form-group">
+        <label for="ApellidoMaterno">Apellido Materno</label>
+        <input class="form-control" type="text" name="ApellidoMaterno"/>
+    </div>
+    <div class="form-group">
+        <label for="IdCarrera">Id Carrera</label>
+        <input class="form-control" type="text" name="IdCarrera"/>
+    </div>
+    <div class="form-group">
+        <label for="Estatus">Estatus</label>
+        <input class="form-control" type="checkbox" name="Estatus" value="true"/>
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="submit" value="Enviar"/>
+    </div>
+</form>

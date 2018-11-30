@@ -1,0 +1,16 @@
+﻿@using cocolab.Models
+@{    
+    ViewBag.Title = "Consultar alumnos";
+    Layout = "~/Views/Shared/_Consulta.cshtml";
+}
+<a class="btn btn-primary" href="alumno/alta">Nuevo</a> 
+<ul class="list-group">
+@foreach (Alumno alumno in ViewData["alumnos"] as List<Alumno>)
+{
+    <li class="list-group-item">
+        @alumno.Nombre @alumno.ApellidoPaterno @alumno.ApellidoMaterno
+        <a class="btn btn-secondary" href="alumno/modificacion/@alumno.NoControl">Editar</a> 
+        <a class="btn btn-danger" href="alumno/baja/@alumno.NoControl">Eliminar</a>
+    </li>
+}
+</ul>

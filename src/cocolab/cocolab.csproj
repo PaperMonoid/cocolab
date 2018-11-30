@@ -113,6 +113,7 @@
   <ItemGroup>
     <Folder Include="Content\" />
     <Folder Include="Scripts\" />
+    <Folder Include="Views\Alumno\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -120,7 +121,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HelloWorldController.cs" />
     <Compile Include="Models\Alumno.cs" />
     <Compile Include="Controllers\AlumnoController.cs" />
     <Compile Include="Models\Carrera.cs" />
@@ -128,6 +128,7 @@
     <Compile Include="Models\Historial_Maquina.cs" />
     <Compile Include="Models\Registro.cs" />
     <Compile Include="Models\Ubicacion.cs" />
+    <Compile Include="NHibernateHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Models\Carrera.hbm.xml">
@@ -147,7 +148,12 @@
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
-    <Content Include="Views\HelloWorld\Index.aspx" />
+    <Content Include="Views\Shared\_Consulta.cshtml" />
+    <Content Include="Views\Alumno\Index.cshtml" />
+    <Content Include="Views\Alumno\Alta.cshtml" />
+    <Content Include="Views\Shared\_Alta.cshtml" />
+    <Content Include="Views\Alumno\Modificacion.cshtml" />
+    <Content Include="Views\Shared\_Modificacion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
