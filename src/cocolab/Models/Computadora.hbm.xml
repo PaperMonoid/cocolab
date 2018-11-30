@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+   assembly="cocolab" namespace="cocolab.Models">
+  <class name="Computadora" table='"Computadora"'>
+    <id name="IdComputadora">
+      <column name='"No_maquina"' not-null="true"/>
+    </id>
+    <property name="Estatus">
+      <column name='"Estatus_computadora"'/>
+    </property>
+    <property name="Serie">
+      <column name='"Serie_computadora"'/>
+    </property>
+    <property name="Marca">
+      <column name='"Marca_computadora"'/>
+    </property>
+    <property name="Modelo">
+      <column name='"Modelo_computadora"'/>
+    </property>
+    <property name="NoInventario">
+      <column name='"No_Inventario_computadora"'/>
+    </property>
+    <property name="FechaRegistro">
+      <column name='"Fecha_Registro_computadora"'/>
+    </property>
+    <property name="FechaModificacion">
+      <column name='"Fecha_Mod_computadora"'/>
+    </property>
+  </class>
+</hibernate-mapping>

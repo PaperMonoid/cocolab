@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+   assembly="cocolab" namespace="cocolab.Models">
+  <class name="Ubicacion" table='"Ubicacion"'>
+    <id name="IdUbicacion">
+      <column name='"Id_ubicacion"' not-null="true"/>
+    </id>
+    <property name="Estatus">
+      <column name='"Estatus_ubicacion"'/>
+    </property>
+    <property name="FechaRegistro">
+      <column name='"Fecha_Registro_ubicacion"'/>
+    </property>
+    <property name="FechaModificacion">
+      <column name='"Fecha_Mod_ubicacion"'/>
+    </property>
+    <property name="Comentario">
+      <column name='"Comentario_ubicacion"'/>
+    </property>
+    <property name="IdComputadora">
+      <column name='"No_Maquina_ubicacion"'/>
+    </property>
+  </class>
+</hibernate-mapping>

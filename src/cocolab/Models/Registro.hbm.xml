@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+   assembly="cocolab" namespace="cocolab.Models">
+  <class name="Registro" table='"Registro"'>
+    <id name="IdRegistro">
+      <column name='"Id_registro"' not-null="true"/>
+    </id>
+    <property name="NoControlAlumno">
+      <column name='"No_Control_alumno"'/>
+    </property>
+    <property name="FechaSolicitud">
+      <column name='"Fecha_Solicitud_registro"'/>
+    </property>
+    <property name="FechaFinalizacion">
+      <column name='"Fecha_Finalizacion_registro"'/>
+    </property>
+    <property name="Uso">
+      <column name='"Uso_registro"'/>
+    </property>
+    <property name="IdUbicacion">
+      <column name='"Id_Ubicacion"'/>
+    </property>
+  </class>
+</hibernate-mapping>

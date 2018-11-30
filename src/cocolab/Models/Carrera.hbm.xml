@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+   assembly="cocolab" namespace="cocolab.Models">
+  <class name="Carrera" table='"Carrera"'>
+    <id name="IdCarrera">
+      <column name='"Id_carrera"' not-null="true"/>
+    </id>
+    <property name="Descripcion">
+      <column name='"Descrip_carrera"'/>
+    </property>
+  </class>
+</hibernate-mapping>

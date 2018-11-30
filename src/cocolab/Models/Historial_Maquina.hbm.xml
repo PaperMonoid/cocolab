@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+   assembly="cocolab" namespace="cocolab.Models">
+  <class name="Historial_Maquina" table='"Historial_Maquina"'>
+    <id name="IdHistorialMaquina">
+      <column name='"Id_Historial_maquina"' not-null="true"/>
+    </id>
+    <property name="FechaRegistro">
+      <column name='"Fecha_Registro_hist_maq"'/>
+    </property>
+    <property name="FechaFinal">
+      <column name='"Fecha_Final_hist_maq"'/>
+    </property>
+    <property name="IdComputadora">
+      <column name='"No_maquina"'/>
+    </property>
+    <property name="IdUbicacion">
+      <column name='"Id_ubicacion"'/>
+    </property>
+    
+  </class>
+</hibernate-mapping>

@@ -123,8 +123,22 @@
     <Compile Include="Controllers\HelloWorldController.cs" />
     <Compile Include="Models\Alumno.cs" />
     <Compile Include="Controllers\AlumnoController.cs" />
+    <Compile Include="Models\Carrera.cs" />
+    <Compile Include="Models\Computadora.cs" />
+    <Compile Include="Models\Historial_Maquina.cs" />
+    <Compile Include="Models\Registro.cs" />
+    <Compile Include="Models\Ubicacion.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Models\Carrera.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Computadora.hbm.xml" />
+    <EmbeddedResource Include="Models\Historial_Maquina.hbm.xml" />
+    <EmbeddedResource Include="Models\Registro.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Ubicacion.hbm.xml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -139,7 +153,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Models\Alumno.hbm.xml" />
+    <EmbeddedResource Include="Models\Alumno.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
