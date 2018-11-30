@@ -60,8 +60,8 @@ CREATE TABLE public."Alumno" (
     "Apellido_Mat_alumno" character varying(50) NOT NULL,
     "Id_carrera" character varying(4) NOT NULL,
     "Estatus_alumno" boolean NOT NULL,
-    "Fecha_Regis_alumno" time without time zone NOT NULL,
-    "Fecha_Mod_alumno" time without time zone
+    "Fecha_Regis_alumno" timestamp without time zone NOT NULL,
+    "Fecha_Mod_alumno" timestamp without time zone
 );
 
 
@@ -89,8 +89,8 @@ CREATE TABLE public."Computadora" (
     "Marca_computadora" character varying(25) NOT NULL,
     "Modelo_computadora" character varying(30) NOT NULL,
     "No_Inventario_computadora" character varying(30) NOT NULL,
-    "Fecha_Registro_computadora" time without time zone NOT NULL,
-    "Fecha_Mod_computadora" time without time zone,
+    "Fecha_Registro_computadora" timestamp without time zone NOT NULL,
+    "Fecha_Mod_computadora" timestamp without time zone,
     "No_maquina" integer NOT NULL
 );
 
@@ -125,8 +125,8 @@ ALTER SEQUENCE public."Computadora_No_maquina_seq" OWNED BY public."Computadora"
 
 CREATE TABLE public."Historial_Maquina" (
     "Id_Historial_maquina" integer NOT NULL,
-    "Fecha_Registro_hist_maq" time without time zone NOT NULL,
-    "Fecha_Final_hist_maq" time without time zone,
+    "Fecha_Registro_hist_maq" timestamp without time zone NOT NULL,
+    "Fecha_Final_hist_maq" timestamp without time zone,
     "No_maquina" integer NOT NULL,
     "Id_ubicacion" integer NOT NULL
 );
@@ -163,8 +163,8 @@ ALTER SEQUENCE public."Historial_Maquina_Id_Historial_maquina_seq" OWNED BY publ
 CREATE TABLE public."Registro" (
     "Id_registro" integer NOT NULL,
     "No_Control_alumno" numeric(8,0) NOT NULL,
-    "Fecha_Solicitud_registro" time without time zone NOT NULL,
-    "Fecha_Finalizacion_registro" time without time zone,
+    "Fecha_Solicitud_registro" timestamp without time zone NOT NULL,
+    "Fecha_Finalizacion_registro" timestamp without time zone,
     "Uso_registro" text NOT NULL,
     "Id_ubicacion" integer NOT NULL
 );
@@ -201,8 +201,8 @@ ALTER SEQUENCE public."Registro_Id_registro_seq" OWNED BY public."Registro"."Id_
 CREATE TABLE public."Ubicacion" (
     "Id_ubicacion" integer NOT NULL,
     "Estatus_ubicacion" boolean NOT NULL,
-    "Fecha_Registro_ubicacion" time without time zone NOT NULL,
-    "Fecha_Mod_ubicacion" time without time zone,
+    "Fecha_Registro_ubicacion" timestamp without time zone NOT NULL,
+    "Fecha_Mod_ubicacion" timestamp without time zone,
     "Comentario_ubicacion" text NOT NULL,
     "No_Maquina_ubicacion" integer NOT NULL
 );
@@ -236,7 +236,7 @@ ALTER TABLE ONLY public."Registro" ALTER COLUMN "Id_registro" SET DEFAULT nextva
 --
 
 COPY public."Alumno" ("No_Control_alumno", "Nombre_alumno", "Ape_Pat_alumno", "Apellido_Mat_alumno", "Id_carrera", "Estatus_alumno", "Fecha_Regis_alumno", "Fecha_Mod_alumno") FROM stdin;
-1212033	Claudio	Lopez	Ramos	ISIC	t	19:47:46.940997	\N
+1212033	Claudio	Lopez	Ramos	ISIC	t	2018-11-27 19:47:46.940997	\N
 \.
 
 
@@ -260,7 +260,7 @@ IINF	Ingeniería en Informatica
 --
 
 COPY public."Computadora" ("Estatus_computadora", "Serie_computadora", "Marca_computadora", "Modelo_computadora", "No_Inventario_computadora", "Fecha_Registro_computadora", "Fecha_Mod_computadora", "No_maquina") FROM stdin;
-t	LXMX-001	Lanix	AFD-08	TA123	19:59:15.338174	\N	1
+t	LXMX-001	Lanix	AFD-08	TA123	2018-11-27 19:59:15.338174	\N	1
 \.
 
 
@@ -269,7 +269,7 @@ t	LXMX-001	Lanix	AFD-08	TA123	19:59:15.338174	\N	1
 --
 
 COPY public."Historial_Maquina" ("Id_Historial_maquina", "Fecha_Registro_hist_maq", "Fecha_Final_hist_maq", "No_maquina", "Id_ubicacion") FROM stdin;
-1	20:07:01.873826	\N	1	1
+1	2018-11-27 20:07:01.873826	\N	1	1
 \.
 
 
@@ -286,7 +286,7 @@ COPY public."Registro" ("Id_registro", "No_Control_alumno", "Fecha_Solicitud_reg
 --
 
 COPY public."Ubicacion" ("Id_ubicacion", "Estatus_ubicacion", "Fecha_Registro_ubicacion", "Fecha_Mod_ubicacion", "Comentario_ubicacion", "No_Maquina_ubicacion") FROM stdin;
-1	t	20:07:01.873826	\N	Maquina nueva	1
+1	t	2018-11-27 20:07:01.873826	\N	Maquina nueva	1
 \.
 
 
