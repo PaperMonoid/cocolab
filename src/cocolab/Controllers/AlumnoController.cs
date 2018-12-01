@@ -56,7 +56,9 @@ namespace cocolab.Controllers
                                            .First();
                     if (alumno != null)
                     {
-                        session.Delete(alumno);
+                        alumno.Estatus = false;
+                        alumno.FechaModificacion = DateTime.Now;
+                        session.Update(alumno);
                     }
                     tx.Commit();
                 }
@@ -119,12 +121,29 @@ namespace cocolab.Controllers
 
         [HttpGet]
         [Route("")]
-        public ActionResult Index()
+        public ActionResult Index(string Busqueda, string Valor)       
         {
             ISession session = NHibernateHelper.GetCurrentSession();
-            List<Alumno> alumnos = session.Query<Alumno>().ToList();
+            IQueryable<Alumno> alumnos = session.Query<Alumno>();
+            switch (Busqueda) {
+                case "NoControl":
+                    ViewData["alumnos"] = alumnos.Where(x => x.NoControl == long.Parse(Valor)).ToList();
+                    break;
+                case "Nombre":
+                    ViewData["alumnos"] = alumnos.Where(x => x.Nombre == Valor).ToList();
+                    break;
+                case "ApellidoPaterno":
+                    ViewData["alumnos"] = alumnos.Where(x => x.ApellidoPaterno == Valor).ToList();
+                    break;
+                case "ApellidoMaterno":
+                    ViewData["alumnos"] = alumnos.Where(x => x.ApellidoMaterno == Valor).ToList();
+                    break;
+                default:
+                    ViewData["alumnos"] = alumnos.ToList();
+                    break;
+            }
             NHibernateHelper.CloseSession();
-            ViewData["alumnos"] = alumnos;
+
             return View();
         }
     }
