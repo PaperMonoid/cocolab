@@ -10,7 +10,7 @@ using NHibernate.Cfg;
 namespace cocolab.Controllers
 {
     [RoutePrefix("basedatos")]
-    public class basedatosController : Controller
+    public class BaseDatosController : Controller
     {
         [HttpGet]
         [Route("")]

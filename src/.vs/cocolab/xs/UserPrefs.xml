@@ -1,9 +1,11 @@
 ﻿<Properties StartupConfiguration="{A4C67EB5-B4C0-4589-8F2E-1794E829FEBE}|">
   <MonoDevelop.Ide.ItemProperties.cocolab PreferredExecutionTarget="firefox" />
   <MonoDevelop.Ide.ItemProperties.cocolab.Tests FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="cocolab/Controllers/AlumnoController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="cocolab/Views/BaseDatos/Index.cshtml">
     <Files>
-      <File FileName="cocolab/Controllers/AlumnoController.cs" Line="130" Column="48" />
+      <File FileName="cocolab/Controllers/AlumnoController.cs" Line="11" Column="2" />
+      <File FileName="cocolab/Views/BaseDatos/Index.cshtml" Line="10" Column="101" />
+      <File FileName="cocolab/Controllers/BaseDatosController.cs" Line="21" Column="45" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
