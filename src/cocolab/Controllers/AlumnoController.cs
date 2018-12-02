@@ -118,16 +118,15 @@ namespace cocolab.Controllers
             }
             return RedirectToAction("Index");
         }
-<<<<<<< HEAD
-=======
 
         [HttpGet]
         [Route("")]
-        public ActionResult Index(string Busqueda, string Valor)       
+        public ActionResult Index(string Busqueda, string Valor)
         {
             ISession session = NHibernateHelper.GetCurrentSession();
             IQueryable<Alumno> alumnos = session.Query<Alumno>();
-            switch (Busqueda) {
+            switch (Busqueda)
+            {
                 case "NoControl":
                     ViewData["alumnos"] = alumnos.Where(x => x.NoControl == long.Parse(Valor)).ToList();
                     break;
@@ -148,6 +147,5 @@ namespace cocolab.Controllers
 
             return View();
         }
->>>>>>> c0434d74da813980b31f308f0bd02620cd0b3084
     }
 }

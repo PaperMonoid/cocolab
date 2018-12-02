@@ -3,9 +3,7 @@
     ViewBag.Title = "Consultar alumnos";
     Layout = "~/Views/Shared/_Consulta.cshtml";
 }
-<<<<<<< HEAD
 <a class="btn btn-primary" href="basedatos/alumno/alta">Nuevo</a> 
-=======
 <form action="/alumno" method="GET">
     <div class="form-row">
         <div class="form-col">
@@ -27,14 +25,3 @@
         </div>
     </div>
 </form>
->>>>>>> c0434d74da813980b31f308f0bd02620cd0b3084
-<ul class="list-group">
-@foreach (Alumno alumno in ViewData["alumnos"] as List<Alumno>)
-{
-    <li class="list-group-item">
-        @alumno.Nombre @alumno.ApellidoPaterno @alumno.ApellidoMaterno
-        <a class="btn btn-secondary" href="alumno/modificacion/@alumno.NoControl">Editar</a> 
-        <a class="btn btn-danger" href="alumno/baja/@alumno.NoControl">Eliminar</a>
-    </li>
-}
-</ul>
