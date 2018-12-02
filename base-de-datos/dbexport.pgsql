@@ -45,6 +45,118 @@ $$;
 
 ALTER FUNCTION public.actualizar_ubicacion() OWNER TO postgres;
 
+--
+-- Name: actualizar_ubicacion_mod(); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION public.actualizar_ubicacion_mod() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$ 
+declare begin
+if (NEW."Estatus_ubicacion" = False) then
+update public."Historial_Maquina" set "Fecha_Final_hist_maq" = localtimestamp where "Id_ubicacion" = New."Id_ubicacion";
+else
+end if;
+return null;
+end
+$$;
+
+
+ALTER FUNCTION public.actualizar_ubicacion_mod() OWNER TO postgres;
+
+--
+-- Name: reportecarrera(character varying); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION public.reportecarrera(carrera character varying) RETURNS TABLE(no_control integer, fecha_solicitud timestamp without time zone, fecha_finalizacion timestamp without time zone, uso character varying, ubicacion integer)
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+ RETURN QUERY SELECT
+ cast( "Registro"."No_Control_alumno" as integer),
+ cast( "Fecha_Solicitud_registro" as timestamp),
+ cast("Fecha_Finalizacion_registro" as timestamp),
+ cast( "Uso_registro" as varchar),
+ cast("Id_ubicacion" as integer)
+ FROM
+ public."Registro"
+ inner join Public."Alumno" on public."Registro"."No_Control_alumno" = public."Alumno"."No_Control_alumno"
+ WHERE
+ public."Alumno"."Id_carrera" = carrera ;
+END; $$;
+
+
+ALTER FUNCTION public.reportecarrera(carrera character varying) OWNER TO postgres;
+
+--
+-- Name: reportedia(); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION public.reportedia() RETURNS TABLE(no_control integer, fecha_solicitud timestamp without time zone, fecha_finalizacion timestamp without time zone, uso character varying, ubicacion integer)
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+ RETURN QUERY SELECT
+ cast( "Registro"."No_Control_alumno" as integer),
+ cast( "Fecha_Solicitud_registro" as timestamp),
+ cast("Fecha_Finalizacion_registro" as timestamp),
+ cast( "Uso_registro" as varchar),
+ cast("Id_ubicacion" as integer)
+ FROM
+ public."Registro"
+ WHERE
+ extract(day from "Fecha_Solicitud_registro") = extract(day from current_timestamp) ;
+END; $$;
+
+
+ALTER FUNCTION public.reportedia() OWNER TO postgres;
+
+--
+-- Name: reportehora(integer); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION public.reportehora(hora integer) RETURNS TABLE(no_control integer, fecha_solicitud timestamp without time zone, fecha_finalizacion timestamp without time zone, uso character varying, ubicacion integer)
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+ RETURN QUERY SELECT
+ cast( "Registro"."No_Control_alumno" as integer),
+ cast( "Fecha_Solicitud_registro" as timestamp),
+ cast("Fecha_Finalizacion_registro" as timestamp),
+ cast( "Uso_registro" as varchar),
+ cast("Id_ubicacion" as integer)
+ FROM
+ public."Registro"
+ WHERE
+ extract(hour from "Fecha_Solicitud_registro") = hora ;
+END; $$;
+
+
+ALTER FUNCTION public.reportehora(hora integer) OWNER TO postgres;
+
+--
+-- Name: reportemes(integer); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION public.reportemes(mes integer) RETURNS TABLE(no_control integer, fecha_solicitud timestamp without time zone, fecha_finalizacion timestamp without time zone, uso character varying, ubicacion integer)
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+ RETURN QUERY SELECT
+ cast( "Registro"."No_Control_alumno" as integer),
+ cast( "Fecha_Solicitud_registro" as timestamp),
+ cast("Fecha_Finalizacion_registro" as timestamp),
+ cast( "Uso_registro" as varchar),
+ cast("Id_ubicacion" as integer)
+ FROM
+ public."Registro"
+ WHERE
+ extract(month from "Fecha_Solicitud_registro") = mes ;
+END; $$;
+
+
+ALTER FUNCTION public.reportemes(mes integer) OWNER TO postgres;
+
 SET default_tablespace = '';
 
 SET default_with_oids = false;
@@ -211,6 +323,59 @@ CREATE TABLE public."Ubicacion" (
 ALTER TABLE public."Ubicacion" OWNER TO postgres;
 
 --
+-- Name: conteoanio; Type: VIEW; Schema: public; Owner: postgres
+--
+
+CREATE VIEW public.conteoanio AS
+ SELECT date_part('year'::text, "Registro"."Fecha_Solicitud_registro") AS anio,
+    count("Registro"."Id_registro") AS count
+   FROM public."Registro"
+  GROUP BY (date_part('year'::text, "Registro"."Fecha_Solicitud_registro"));
+
+
+ALTER TABLE public.conteoanio OWNER TO postgres;
+
+--
+-- Name: conteocarrera; Type: VIEW; Schema: public; Owner: postgres
+--
+
+CREATE VIEW public.conteocarrera AS
+ SELECT alum."Id_carrera",
+    count("Registro"."Id_registro") AS count
+   FROM (public."Registro"
+     JOIN public."Alumno" alum ON (("Registro"."No_Control_alumno" = alum."No_Control_alumno")))
+  GROUP BY alum."Id_carrera";
+
+
+ALTER TABLE public.conteocarrera OWNER TO postgres;
+
+--
+-- Name: conteodia; Type: VIEW; Schema: public; Owner: postgres
+--
+
+CREATE VIEW public.conteodia AS
+ SELECT date_part('day'::text, "Registro"."Fecha_Solicitud_registro") AS dia,
+    count("Registro"."Id_registro") AS count
+   FROM public."Registro"
+  GROUP BY (date_part('day'::text, "Registro"."Fecha_Solicitud_registro"));
+
+
+ALTER TABLE public.conteodia OWNER TO postgres;
+
+--
+-- Name: conteomes; Type: VIEW; Schema: public; Owner: postgres
+--
+
+CREATE VIEW public.conteomes AS
+ SELECT date_part('month'::text, "Registro"."Fecha_Solicitud_registro") AS mes,
+    count("Registro"."Id_registro") AS count
+   FROM public."Registro"
+  GROUP BY (date_part('month'::text, "Registro"."Fecha_Solicitud_registro"));
+
+
+ALTER TABLE public.conteomes OWNER TO postgres;
+
+--
 -- Name: Computadora No_maquina; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -236,7 +401,7 @@ ALTER TABLE ONLY public."Registro" ALTER COLUMN "Id_registro" SET DEFAULT nextva
 --
 
 COPY public."Alumno" ("No_Control_alumno", "Nombre_alumno", "Ape_Pat_alumno", "Apellido_Mat_alumno", "Id_carrera", "Estatus_alumno", "Fecha_Regis_alumno", "Fecha_Mod_alumno") FROM stdin;
-1212033	Claudio	Lopez	Ramos	ISIC	t	2018-11-27 19:47:46.940997	\N
+1212033	Claudio	Velocidad	Ramos	ISIC	f	2018-11-27 19:47:46.940997	2018-12-01 23:16:47.99363
 \.
 
 
@@ -261,6 +426,7 @@ IINF	Ingeniería en Informatica
 
 COPY public."Computadora" ("Estatus_computadora", "Serie_computadora", "Marca_computadora", "Modelo_computadora", "No_Inventario_computadora", "Fecha_Registro_computadora", "Fecha_Mod_computadora", "No_maquina") FROM stdin;
 t	LXMX-001	Lanix	AFD-08	TA123	2018-11-27 19:59:15.338174	\N	1
+f	ASDF-002	Generica	123SA	TA122	2018-11-27 19:59:15.338174	\N	2
 \.
 
 
@@ -269,7 +435,7 @@ t	LXMX-001	Lanix	AFD-08	TA123	2018-11-27 19:59:15.338174	\N	1
 --
 
 COPY public."Historial_Maquina" ("Id_Historial_maquina", "Fecha_Registro_hist_maq", "Fecha_Final_hist_maq", "No_maquina", "Id_ubicacion") FROM stdin;
-1	2018-11-27 20:07:01.873826	\N	1	1
+1	2018-11-27 20:07:01.873826	2018-12-01 22:39:37.044649	1	1
 \.
 
 
@@ -278,6 +444,8 @@ COPY public."Historial_Maquina" ("Id_Historial_maquina", "Fecha_Registro_hist_ma
 --
 
 COPY public."Registro" ("Id_registro", "No_Control_alumno", "Fecha_Solicitud_registro", "Fecha_Finalizacion_registro", "Uso_registro", "Id_ubicacion") FROM stdin;
+2	1212033	2018-12-01 00:00:00	\N	tarea	1
+3	1212033	2018-12-02 00:00:00	\N	tarea	1
 \.
 
 
@@ -286,7 +454,7 @@ COPY public."Registro" ("Id_registro", "No_Control_alumno", "Fecha_Solicitud_reg
 --
 
 COPY public."Ubicacion" ("Id_ubicacion", "Estatus_ubicacion", "Fecha_Registro_ubicacion", "Fecha_Mod_ubicacion", "Comentario_ubicacion", "No_Maquina_ubicacion") FROM stdin;
-1	t	2018-11-27 20:07:01.873826	\N	Maquina nueva	1
+1	f	2018-11-27 20:07:01.873826	\N	Maquina nueva	1
 \.
 
 
@@ -301,14 +469,14 @@ SELECT pg_catalog.setval('public."Computadora_No_maquina_seq"', 1, false);
 -- Name: Historial_Maquina_Id_Historial_maquina_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public."Historial_Maquina_Id_Historial_maquina_seq"', 1, true);
+SELECT pg_catalog.setval('public."Historial_Maquina_Id_Historial_maquina_seq"', 2, true);
 
 
 --
 -- Name: Registro_Id_registro_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public."Registro_Id_registro_seq"', 1, false);
+SELECT pg_catalog.setval('public."Registro_Id_registro_seq"', 3, true);
 
 
 --
@@ -399,6 +567,13 @@ CREATE INDEX fki_ubicacion_maquina ON public."Ubicacion" USING btree ("No_Maquin
 --
 
 CREATE TRIGGER insertar_ubicacion AFTER INSERT ON public."Ubicacion" FOR EACH ROW EXECUTE PROCEDURE public.actualizar_ubicacion();
+
+
+--
+-- Name: Ubicacion quitar_maquina; Type: TRIGGER; Schema: public; Owner: postgres
+--
+
+CREATE TRIGGER quitar_maquina AFTER UPDATE ON public."Ubicacion" FOR EACH ROW EXECUTE PROCEDURE public.actualizar_ubicacion_mod();
 
 
 --
