@@ -106,7 +106,6 @@ namespace cocolab.Controllers
             {
                 using (ITransaction tx = session.BeginTransaction())
                 {
-                    Console.WriteLine(alumno.Estatus);
                     alumno.FechaModificacion = DateTime.Now;
                     session.Update(alumno);
                     tx.Commit();

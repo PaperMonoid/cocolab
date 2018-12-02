@@ -14,6 +14,6 @@ namespace cocolab.Models
         public virtual string Modelo { get; set; }
         public virtual string NoInventario { get; set; }
         public virtual DateTime FechaRegistro { get; set; }
-        public virtual DateTime FechaModificacion { get; set; }
+        public virtual DateTime? FechaModificacion { get; set; }
     }
 }

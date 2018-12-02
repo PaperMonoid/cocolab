@@ -128,6 +128,7 @@
     <Compile Include="Models\Registro.cs" />
     <Compile Include="Models\Ubicacion.cs" />
     <Compile Include="NHibernateHelper.cs" />
+    <Compile Include="Controllers\ComputadoraController.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Models\Carrera.hbm.xml">
