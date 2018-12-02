@@ -7,8 +7,12 @@ using System.Web.Mvc.Ajax;
 
 namespace cocolab.Controllers
 {
-    public class HomeController : Controller
+
+    [RoutePrefix("estadisticas")]
+    public class EstadisticasController : Controller
     {
+        [HttpGet]
+        [Route("")]
         public ActionResult Index()
         {
             return View();

@@ -9,7 +9,7 @@ using NHibernate.Cfg;
 
 namespace cocolab.Controllers
 {
-    [RoutePrefix("alumno")]
+    [RoutePrefix("basedatos/alumno")]
     public class AlumnoController : Controller
     {
         [HttpGet]
@@ -115,17 +115,6 @@ namespace cocolab.Controllers
                 NHibernateHelper.CloseSession();
             }
             return RedirectToAction("Index");
-        }
-
-        [HttpGet]
-        [Route("")]
-        public ActionResult Index()
-        {
-            ISession session = NHibernateHelper.GetCurrentSession();
-            List<Alumno> alumnos = session.Query<Alumno>().ToList();
-            NHibernateHelper.CloseSession();
-            ViewData["alumnos"] = alumnos;
-            return View();
         }
     }
 }
