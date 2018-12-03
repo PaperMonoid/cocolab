@@ -1,11 +1,10 @@
 ﻿<Properties StartupConfiguration="{A4C67EB5-B4C0-4589-8F2E-1794E829FEBE}|">
   <MonoDevelop.Ide.ItemProperties.cocolab PreferredExecutionTarget="firefox" />
   <MonoDevelop.Ide.ItemProperties.cocolab.Tests FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="cocolab/Models/Registro.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="cocolab/Controllers/CarreraController.cs">
     <Files>
-      <File FileName="cocolab/Controllers/ComputadoraController.cs" Line="142" Column="81" />
-      <File FileName="cocolab/Views/Computadora/Index.cshtml" Line="40" Column="67" />
-      <File FileName="cocolab/Models/Registro.cs" Line="1" Column="1" />
+      <File FileName="cocolab/Views/Carrera/Index.cshtml" Line="33" Column="63" />
+      <File FileName="cocolab/Controllers/CarreraController.cs" Line="56" Column="39" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

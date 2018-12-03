@@ -53,7 +53,7 @@ namespace cocolab.Controllers
                                              .First();
                     if (carrera != null)
                     {
-                        session.Update(carrera);
+                        session.Delete(carrera);
                     }
                     tx.Commit();
                 }
@@ -65,7 +65,7 @@ namespace cocolab.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("modificacion/{IdCarrera}")]
         public ActionResult Modificacion(string IdCarrera)
         {

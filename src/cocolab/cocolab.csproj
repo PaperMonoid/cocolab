@@ -211,6 +211,9 @@
     <Content Include="Views\Computadora\Index.cshtml" />
     <Content Include="Views\Computadora\Alta.cshtml" />
     <Content Include="Views\Computadora\Modificacion.cshtml" />
+    <Content Include="Views\Carrera\Index.cshtml" />
+    <Content Include="Views\Carrera\Alta.cshtml" />
+    <Content Include="Views\Carrera\Modificacion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

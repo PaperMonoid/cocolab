@@ -1,0 +1,37 @@
+﻿@using cocolab.Models
+@{    
+    ViewBag.Title = "Consultar carreras";
+    Layout = "~/Views/Shared/_Consulta.cshtml";
+}
+<form action="/basedatos/carrera" method="GET">
+    <div class="form-row">
+        <div class="form-col">
+            <select class="form-control" name="Busqueda">
+                <option value="IdCarrera">IdCarrera</option>
+                <option value="Descripcion">Descripcion</option>
+            </select>
+        </div>
+        <div class="form-col">
+            <input class="form-control" type="text" name="Valor" autofocus=""/>
+        </div>
+        <div class="form-col">
+            <input class="btn btn-secondary" type="submit" value="Buscar">
+        </div>
+        <div style="float:right;">
+            <a class="btn btn-primary" href="/basedatos/carrera/alta">Nuevo</a> 
+        </div>
+    </div>
+</form>
+<br/>
+<ul class="list-group"> 
+@foreach (Carrera carrera in ViewData["carreras"] as List<Carrera>)
+{
+    <li class="list-group-item">
+        @carrera.IdCarrera @carrera.Descripcion
+        <div style="float:right;">
+            <a class="btn btn-secondary" href="/basedatos/carrera/modificacion/@carrera.IdCarrera">Editar</a> 
+            <a class="btn btn-danger" href="/basedatos/carrera/baja/@carrera.IdCarrera">Eliminar</a>
+        </div>
+    </li>
+}
+</ul>

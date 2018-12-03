@@ -1,0 +1,17 @@
+﻿@{    
+    ViewBag.Title = "Alta carrera";
+    Layout = "~/Views/Shared/_Alta.cshtml";
+}
+<form action="/basedatos/carrera/alta" method="POST">
+    <div class="form-group">
+        <label for="IdCarrera">Id Carrera</label>
+        <input class="form-control" type="text" name="IdCarrera" autofocus=""/>
+    </div>
+    <div class="form-group">
+        <label for="Descripcion">Descripción</label>
+        <input class="form-control" type="text" name="Descripcion"/>
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="submit" value="Enviar"/>
+    </div>
+</form>
