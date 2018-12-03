@@ -4,6 +4,7 @@
   <class name="Registro" table='"Registro"'>
     <id name="IdRegistro">
       <column name='"Id_registro"' not-null="true"/>
+      <generator class="increment"/>
     </id>
     <property name="NoControlAlumno">
       <column name='"No_Control_alumno"'/>
@@ -18,7 +19,7 @@
       <column name='"Uso_registro"'/>
     </property>
     <property name="IdUbicacion">
-      <column name='"Id_Ubicacion"'/>
+      <column name='"Id_ubicacion"'/>
     </property>
   </class>
 </hibernate-mapping>

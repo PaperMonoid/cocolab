@@ -131,6 +131,7 @@
     <Compile Include="NHibernateHelper.cs" />
     <Compile Include="Controllers\ComputadoraController.cs" />
     <Compile Include="Models\ReporteDia.cs" />
+    <Compile Include="Models\RegistroUbicacion.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Models\Carrera.hbm.xml">

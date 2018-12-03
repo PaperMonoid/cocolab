@@ -1,13 +1,7 @@
 ﻿<Properties StartupConfiguration="{A4C67EB5-B4C0-4589-8F2E-1794E829FEBE}|">
   <MonoDevelop.Ide.ItemProperties.cocolab PreferredExecutionTarget="firefox" />
   <MonoDevelop.Ide.ItemProperties.cocolab.Tests FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="cocolab/Views/Estadisticas/Index.cshtml">
-    <Files>
-      <File FileName="cocolab/Controllers/EstadisticasController.cs" Line="24" Column="68" />
-      <File FileName="cocolab/Views/Estadisticas/Index.cshtml" Line="20" Column="31" />
-      <File FileName="cocolab/Models/ReporteDia.cs" Line="10" Column="23" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

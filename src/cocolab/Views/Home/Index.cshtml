@@ -1,9 +1,29 @@
-﻿@{
+﻿@using cocolab.Models
+@{
     ViewBag.Title = "cocolab";
+    Layout = "~/Views/Shared/_Consulta.cshtml";
 }
-<div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Numero de control" aria-label="Numero de control" aria-describedby="button-addon2">
-    <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Asignar</button>
+<form action="/" method="POST">
+    <div class="input-group">
+        <input class="form-control" type="text" placeholder="Id Ubicación" name="IdUbicacion" autofocus=""/>
+        <div class="input-group-append">
+            <input class="form-control" type="text" placeholder="Número de control" name="NoControl"/>
+        </div>
+        <div class="input-group-append">
+            <input class="btn btn-outline-secondary" type="submit" value="Asignar">
+        </div>
     </div>
-</div>
+</form>
+<br/>
+<ul class="list-group"> 
+@foreach (RegistroUbicacion registroUbicacion in ViewData["registroUbicaciones"] as List<RegistroUbicacion>)
+{
+    <li class="list-group-item">
+        @if (registroUbicacion.Registro != null && registroUbicacion.Registro.FechaFinalizacion == null)
+        {
+        <span class="badge badge-danger">Ocupado por @registroUbicacion.Registro.NoControlAlumno desde @registroUbicacion.Registro.FechaSolicitud.ToString()</span>
+        }
+        @registroUbicacion.Ubicacion.IdUbicacion @registroUbicacion.Ubicacion.IdComputadora
+    </li>
+}
+</ul>
