@@ -131,6 +131,7 @@
     <Compile Include="Models\Ubicacion.cs" />
     <Compile Include="NHibernateHelper.cs" />
     <Compile Include="Controllers\ComputadoraController.cs" />
+    <Compile Include="Models\ReporteDia.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Models\Carrera.hbm.xml">
@@ -215,6 +216,8 @@
     <Content Include="Views\Carrera\Index.cshtml" />
     <Content Include="Views\Carrera\Alta.cshtml" />
     <Content Include="Views\Carrera\Modificacion.cshtml" />
+    <Content Include="Views\Estadisticas\Carrera.cshtml" />
+    <EmbeddedResource Include="Models\ReporteDia.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
