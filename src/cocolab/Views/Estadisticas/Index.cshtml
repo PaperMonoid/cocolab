@@ -1,1 +1,36 @@
-﻿<img src="https://assets.highcharts.com/images/demo-thumbnails/highcharts/chart-update-default.png"/ >
+﻿@using cocolab.Models
+@{    
+    ViewBag.Title = "Estadísticas";
+    Layout = "~/Views/Shared/_Consulta.cshtml";
+}
+<form action="/estadisticas" method="GET">
+    <div class="form-row">
+        <div class="form-col">
+            <label for="Fecha">Fecha</label>
+            <input class="form-control" type="text" name="Fecha" autofocus=""/>
+        </div>
+        <div class="form-col">
+            <label for="Hora">Hora</label>
+            <input class="form-control" type="text" name="Hora" autofocus=""/>
+        </div>
+        <div class="form-col">
+            <label for="IdCarrera">Id Carrera</label>
+            <input class="form-control" type="text" name="IdCarrera" autofocus=""/>
+        </div>
+        <div class="form-col">
+            <input class="btn btn-secondary" type="submit" value="Buscar">
+        </div>
+        <div style="float:right;">
+            <a class="btn btn-primary" href="/estadistica/carrera">Por carrera</a> 
+        </div>
+    </div>
+</form>
+<br/>
+<ul class="list-group"> 
+@foreach (ReporteDia reportes in ViewData["reportes"] as List<ReporteDia>)
+{
+    <li class="list-group-item">
+        @reportes.no_control @reportes.fecha_solicitud @reportes.fecha_finalizacion @reportes.uso @reportes.ubicacion
+    </li>
+}
+</ul>

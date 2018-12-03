@@ -1,8 +1,13 @@
-﻿<nav class="navbar fixed-bottom navbar-dark bg-dark">
+﻿@using system
+@{
+    DateTime now = DateTime.Now;
+    string fecha = now.ToString("dd/MM/yy");
+}
+<nav class="navbar fixed-bottom navbar-dark bg-dark">
     <form class="form-inline text-white">
-            <p>Computadoras disponibles: 7 </p>
+        Computadoras disponibles: 7
     </form>
-    <form class="form-inline">
-        <div id="clock">Jueves 25 de Noviembre del 2018</div>
+    <form class="form-inline text-white">
+        <div id="clock">@fecha</div>
     </form>
 </nav>
