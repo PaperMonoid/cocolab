@@ -1,0 +1,42 @@
+﻿@using cocolab.Models
+@{    
+    ViewBag.Title = "Consultar ubicaciones";
+    Layout = "~/Views/Shared/_Consulta.cshtml";
+}
+<form action="/basedatos/ubicacion" method="GET">
+    <div class="form-row">
+        <div class="form-col">
+            <select class="form-control" name="Busqueda">
+                <option value="IdUbicacion">Id Ubicación</option>
+                <option value="Estatus">Estatus</option>
+                <option value="IdComputadora">Id Computadora</option>
+            </select>
+        </div>
+        <div class="form-col">
+            <input class="form-control" type="text" name="Valor" autofocus=""/>
+        </div>
+        <div class="form-col">
+            <input class="btn btn-secondary" type="submit" value="Buscar">
+        </div>
+        <div style="float:right;">
+            <a class="btn btn-primary" href="/basedatos/ubicacion/alta">Nuevo</a> 
+        </div>
+    </div>
+</form>
+<br/>
+<ul class="list-group"> 
+@foreach (Ubicacion ubicacion in ViewData["ubicaciones"] as List<Ubicacion>)
+{
+    <li class="list-group-item">
+        @if (!ubicacion.Estatus)
+        {
+        <span class="badge badge-danger">Eliminada</span>
+        }
+        @ubicacion.IdUbicacion @ubicacion.FechaRegistro.ToString() @ubicacion.Comentario @ubicacion.IdComputadora
+        <div style="float:right;">
+            <a class="btn btn-secondary" href="/basedatos/ubicacion/modificacion/@ubicacion.IdUbicacion">Editar</a> 
+            <a class="btn btn-danger" href="/basedatos/ubicacion/baja/@ubicacion.IdUbicacion">Eliminar</a>
+        </div>
+    </li>
+}
+</ul>

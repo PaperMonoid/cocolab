@@ -1,7 +1,13 @@
 ﻿<Properties StartupConfiguration="{A4C67EB5-B4C0-4589-8F2E-1794E829FEBE}|">
   <MonoDevelop.Ide.ItemProperties.cocolab PreferredExecutionTarget="firefox" />
   <MonoDevelop.Ide.ItemProperties.cocolab.Tests FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="cocolab/Views/Ubicacion/Modificacion.cshtml">
+    <Files>
+      <File FileName="cocolab/Views/Ubicacion/Modificacion.cshtml" Line="22" Column="14" />
+      <File FileName="cocolab/Views/Computadora/Modificacion.cshtml" Line="29" Column="1" />
+      <File FileName="cocolab/Controllers/UbicacionController.cs" Line="110" Column="43" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

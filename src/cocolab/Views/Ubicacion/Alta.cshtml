@@ -1,0 +1,26 @@
+﻿@{    
+    ViewBag.Title = "Alta ubicación";
+    Layout = "~/Views/Shared/_Alta.cshtml";
+}
+<form action="/basedatos/ubicacion/alta" method="POST">
+    <div class="form-group">
+        <label for="IdUbicacion">Id Ubicación</label>
+        <input class="form-control" type="text" name="IdUbicacion" autofocus=""/>
+    </div>
+    <div class="form-group">
+        <label for="Comentario">Comentario</label>
+        <input class="form-control" type="text" name="Comentario"/>
+    </div>
+    <div class="form-group">
+        <label for="IdComputadora">Id Computadora</label>
+        <input class="form-control" type="text" name="IdComputadora"/>
+    </div>
+    <div class="form-group">
+        <label for="Estatus">Estatus</label>
+        <input class="form-control" type="checkbox" name="Estatus" value="true"/>
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="submit" value="Enviar"/>
+    </div>
+</form>
+

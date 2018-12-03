@@ -53,9 +53,6 @@
     <Reference Include="NHibernate, Version=5.1.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\NHibernate.5.1.3\lib\net461\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
-    </Reference>
     <Reference Include="Remotion.Linq.EagerFetching, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <HintPath>..\packages\Remotion.Linq.EagerFetching.2.2.0\lib\net45\Remotion.Linq.EagerFetching.dll</HintPath>
     </Reference>
@@ -110,6 +107,9 @@
     <Reference Include="mscorlib" />
     <Reference Include="Npgsql">
       <HintPath>..\packages\Npgsql.4.0.3\lib\net451\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -219,6 +219,9 @@
     <Content Include="Views\Carrera\Modificacion.cshtml" />
     <Content Include="Views\Estadisticas\Carrera.cshtml" />
     <EmbeddedResource Include="Models\ReporteDia.hbm.xml" />
+    <Content Include="Views\Ubicacion\Index.cshtml" />
+    <Content Include="Views\Ubicacion\Alta.cshtml" />
+    <Content Include="Views\Ubicacion\Modificacion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -244,6 +247,7 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\Ubicacion\" />
     <Folder Include="Views\Ubicacion\" />
   </ItemGroup>
   <PropertyGroup>

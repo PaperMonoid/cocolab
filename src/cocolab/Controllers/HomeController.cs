@@ -18,7 +18,7 @@ namespace cocolab.Controllers
             ISession session = NHibernateHelper.GetCurrentSession();
             List<RegistroUbicacion> registroUbicaciones =
                 session.Query<Ubicacion>()
-                       .Select(x => new RegistroUbicacion { Ubicacion = x, Registro = session.Query<Registro>().OrderByDescending(y => y.FechaSolicitud).First() })
+                       .Select(x => new RegistroUbicacion { Ubicacion = x, Registro = session.Query<Registro>().Where(y => x.IdUbicacion == y.IdUbicacion).OrderByDescending(y => y.FechaSolicitud).First() })
                        .ToList();
             ViewData["registroUbicaciones"] = registroUbicaciones.ToList();
             NHibernateHelper.CloseSession();

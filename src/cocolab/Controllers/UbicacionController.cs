@@ -27,13 +27,14 @@ namespace cocolab.Controllers
         [Route("alta")]
         public ActionResult Alta(Ubicacion ubicacion)
         {
+            // triger insertar insertar_ubicacion explota
             ISession session = NHibernateHelper.GetCurrentSession();
             try
             {
                 using (ITransaction tx = session.BeginTransaction())
                 {
                     ubicacion.FechaRegistro = DateTime.Now;
-                    ubicacion.FechaModificacion = DateTime.Now;
+                    ubicacion.FechaModificacion = null;
                     ubicacion.Comentario = "Alta";
                     session.Save(ubicacion);
                     tx.Commit();
@@ -152,5 +153,6 @@ namespace cocolab.Controllers
             NHibernateHelper.CloseSession();
 
             return View();
+        }
     }
 }

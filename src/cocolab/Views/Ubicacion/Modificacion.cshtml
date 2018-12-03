@@ -1,0 +1,36 @@
+﻿@using cocolab.Models
+@{    
+    ViewBag.Title = "Modificación ubicación";
+    Layout = "~/Views/Shared/_Alta.cshtml";
+    Ubicacion ubicacion = ViewData["ubicacion"] as Ubicacion;
+}
+<form action="/basedatos/ubicacion/modificacion" method="POST">
+    <div class="form-group">
+        <label for="IdUbicacion">Id Ubicación</label>
+        <input class="form-control" type="text" name="IdUbicacion" value="@ubicacion.IdUbicacion" readonly=""/>
+    </div>
+    <div class="form-group">
+        <label for="Comentario">Comentario</label>
+        <input class="form-control" type="text" name="Comentario" value="@ubicacion.Comentario" autofocus=""/>
+    </div>
+    <div class="form-group">
+        <label for="IdComputadora">Id Computadora</label>
+        <input class="form-control" type="text" name="IdComputadora"  value="@ubicacion.IdComputadora"/>
+    </div>
+    <div class="form-group">
+        <label for="Estatus">Estatus</label>
+        @if (ubicacion.Estatus) 
+        {
+        <input class="form-control" type="checkbox" name="Estatus" value="true" checked=""/>
+        }
+        else
+        {
+        <input class="form-control" type="checkbox" name="Estatus" value="true"/>
+        }
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="submit" value="Enviar"/>
+    </div>
+</form>
+
+
