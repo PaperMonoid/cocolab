@@ -3,8 +3,7 @@
     ViewBag.Title = "Consultar alumnos";
     Layout = "~/Views/Shared/_Consulta.cshtml";
 }
-<a class="btn btn-primary" href="basedatos/alumno/alta">Nuevo</a> 
-<form action="/alumno" method="GET">
+<form action="/basedatos/alumno" method="GET">
     <div class="form-row">
         <div class="form-col">
             <select class="form-control" name="Busqueda">
@@ -20,8 +19,25 @@
         <div class="form-col">
             <input class="btn btn-secondary" type="submit" value="Buscar">
         </div>
-        <div class="form-col">
-            <a class="btn btn-primary" href="alumno/alta">Nuevo</a> 
+        <div style="float:right;">
+            <a class="btn btn-primary" href="/basedatos/alumno/alta">Nuevo</a> 
         </div>
     </div>
 </form>
+<br/>
+<ul class="list-group"> 
+@foreach (Alumno alumno in ViewData["alumnos"] as List<Alumno>)
+{
+    <li class="list-group-item">
+        @if (!alumno.Estatus)
+        {
+        <span class="badge badge-danger">Eliminado</span>
+        }
+        @alumno.NoControl @alumno.Nombre @alumno.ApellidoPaterno @alumno.ApellidoMaterno
+        <div style="float:right;">
+            <a class="btn btn-secondary" href="/basedatos/alumno/modificacion/@alumno.NoControl">Editar</a> 
+            <a class="btn btn-danger" href="/basedatos/alumno/baja/@alumno.NoControl">Eliminar</a>
+        </div>
+    </li>
+}
+</ul>

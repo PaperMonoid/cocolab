@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Modificacion.cshtml";
     Alumno alumno = ViewData["alumno"] as Alumno;
 }
-<form action="/alumno/modificacion" method="POST">
+<form action="/basedatos/alumno/modificacion" method="POST">
     <div class="form-group">
         <label for="NoControl">Número de control</label>
         <input class="form-control" type="text" name="NoControl" value="@alumno.NoControl" readonly=""/>

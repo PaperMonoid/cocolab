@@ -1,0 +1,44 @@
+﻿@using cocolab.Models
+@{    
+    ViewBag.Title = "Consultar computadora";
+    Layout = "~/Views/Shared/_Consulta.cshtml";
+}
+<form action="/basedatos/computadora" method="GET">
+    <div class="form-row">
+        <div class="form-col">
+            <select class="form-control" name="Busqueda">
+                <option value="NoInventario">Número de inventario</option>
+                <option value="Serie">Serie</option>
+                <option value="Marca">Marca</option>
+                <option value="Modelo">Modelo</option>
+                <option value="Estatus">Estatus</option>
+            </select>
+        </div>
+        <div class="form-col">
+            <input class="form-control" type="text" name="Valor"/>
+        </div>
+        <div class="form-col">
+            <input class="btn btn-secondary" type="submit" value="Buscar">
+        </div>
+        <div style="float:right;">
+            <a class="btn btn-primary" href="/basedatos/computadora/alta">Nuevo</a> 
+        </div>
+    </div>
+</form>
+<br/>
+<ul class="list-group"> 
+@foreach (Computadora computadora in ViewData["computadoras"] as List<Computadora>)
+{
+    <li class="list-group-item">
+        @if (!computadora.Estatus)
+        {
+        <span class="badge badge-danger">Eliminada</span>
+        }
+        @computadora.IdComputadora @computadora.Serie @computadora.Marca @computadora.Modelo @computadora.NoInventario
+        <div style="float:right;">
+            <a class="btn btn-secondary" href="/basedatos/computadora/modificacion/@computadora.IdComputadora">Editar</a> 
+            <a class="btn btn-danger" href="/basedatos/computadora/baja/@computadora.IdComputadora">Eliminar</a>
+        </div>
+    </li>
+}
+</ul>

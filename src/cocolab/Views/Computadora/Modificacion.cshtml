@@ -1,0 +1,44 @@
+﻿@using cocolab.Models
+@{    
+    ViewBag.Title = "Moficación computadora";
+    Layout = "~/Views/Shared/_Modificacion.cshtml";
+    Computadora computadora = ViewData["computadora"] as Computadora;
+}
+<form action="/basedatos/computadora/modificacion" method="POST">
+    <div class="form-group">
+        <label for="IdComputadora">Id Computadora</label>
+        <input class="form-control" type="text" name="IdComputadora"value="@computadora.IdComputadora" readonly=""/>
+    </div>
+    <div class="form-group">
+        <label for="Serie">Serie</label>
+        <input class="form-control" type="text" name="Serie" value="@computadora.Serie" autofocus=""/>
+    </div>
+    <div class="form-group">
+        <label for="Marca">Marca</label>
+        <input class="form-control" type="text" name="Marca" value="@computadora.Marca"/>
+    </div>
+    <div class="form-group">
+        <label for="Modelo">Modelo</label>
+        <input class="form-control" type="text" name="Modelo" value="@computadora.Modelo"/>
+    </div>
+    <div class="form-group">
+        <label for="IdCarrera">NoInventario</label>
+        <input class="form-control" type="text" name="NoInventario" value="@computadora.NoInventario"/>
+    </div>
+    <div class="form-group">
+        <label for="Estatus">Estatus</label>
+        @if (computadora.Estatus) 
+        {
+        <input class="form-control" type="checkbox" name="Estatus" value="true" checked=""/>
+        }
+        else
+        {
+        <input class="form-control" type="checkbox" name="Estatus" value="true"/>
+        }
+    </div>
+    <input type="text"  name="FechaRegistro" value="@computadora.FechaRegistro" hidden=""/>
+    <div class="form-group">
+        <input class="form-control" type="submit" value="Enviar"/>
+    </div>
+</form>
+

@@ -1,18 +1,20 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <script src="../../Scripts/jquery-3.0.0.slim.min.js" async></script>
-    <script src="../../Scripts/popper.min.js" async></script>
-    <script src="../../Scripts/bootstrap.min.js" async></script>
+    <script src="~/Scripts/jquery-3.0.0.slim.min.js" async></script>
+    <script src="~/Scripts/popper.min.js" async></script>
+    <script src="~/Scripts/bootstrap.min.js" async></script>
     <title>@ViewBag.Title</title>
-    <link rel="stylesheet" href="../../Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     <meta charset="utf-8" />
 </head>
 <body>
     @RenderPage("_Header.cshtml")
     @RenderPage("_Footer.cshtml")
-    <h1>@ViewBag.Title</h1>
-    @RenderBody()
+    <div style="padding:50px;">
+        <h1>@ViewBag.Title</h1>
+        @RenderBody()
+    </div>
 </body>
 
 </html>
