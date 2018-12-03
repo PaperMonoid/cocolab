@@ -12,7 +12,7 @@ namespace cocolab.Controllers
     public class ComputadoraController : Controller
     {
 
-        ]
+        
         [Route("alta")]
         public ActionResult Alta()
         {
