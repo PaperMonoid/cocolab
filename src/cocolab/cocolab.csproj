@@ -117,6 +117,7 @@
     <Compile Include="Controllers\CarreraController.cs" />
     <Compile Include="Controllers\EstadisticasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UbicacionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -239,8 +240,7 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Carrera\" />
-    <Folder Include="Views\Computadora\" />
+    <Folder Include="Views\Ubicacion\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
