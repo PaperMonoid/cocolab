@@ -3,25 +3,16 @@
     ViewBag.Title = "Estadísticas";
     Layout = "~/Views/Shared/_Consulta.cshtml";
 }
-<form action="/estadisticas" method="GET">
+<form action="/estadisticas" method="POST">
     <div class="form-row">
         <div class="form-col">
-            <label for="Fecha">Fecha</label>
-            <input class="form-control" type="text" name="Fecha" autofocus=""/>
-        </div>
-        <div class="form-col">
-            <label for="Hora">Hora</label>
-            <input class="form-control" type="text" name="Hora" autofocus=""/>
-        </div>
-        <div class="form-col">
-            <label for="IdCarrera">Id Carrera</label>
             <input class="form-control" type="text" name="IdCarrera" autofocus=""/>
         </div>
         <div class="form-col">
-            <input class="btn btn-secondary" type="submit" value="Buscar">
+            <input class="btn btn-secondary" type="submit" value="Buscar por carrera">
         </div>
         <div style="float:right;">
-            <a class="btn btn-primary" href="/estadistica/carrera">Por carrera</a> 
+            <a class="btn btn-primary" href="/estadisticas/hora">En esta hora</a> 
         </div>
     </div>
 </form>

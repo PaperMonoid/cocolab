@@ -28,17 +28,32 @@ namespace cocolab.Controllers
             return View();
         }
 
-        [HttpPost]
-        [Route("")]
-        public ActionResult Index(DateTime Fecha, int Hora, string IdCarrera)
+        [HttpGet]
+        [Route("hora")]
+            public ActionResult Hora()
         {
+            ISession session = NHibernateHelper.GetCurrentSession();
+            List<ReporteDia> reportes = session.GetNamedQuery("reportehora")
+                                                .SetResultTransformer(Transformers.AliasToBean<ReporteDia>())
+                                                .List<ReporteDia>()
+                                                .ToList();
+            NHibernateHelper.CloseSession();
+            ViewData["reportes"] = reportes;
             return View();
         }
 
-        [HttpGet]
-        [Route("carrera")]
-        public ActionResult Carrera()
+        [HttpPost]
+        [Route("")]
+        public ActionResult Carrera(string IdCarrera)
         {
+            ISession session = NHibernateHelper.GetCurrentSession();
+            List<ReporteDia> reportes = session.GetNamedQuery("reportecarrera")
+                                               .SetString("carrera", IdCarrera)
+                                               .SetResultTransformer(Transformers.AliasToBean<ReporteDia>())
+                                               .List<ReporteDia>()
+                                               .ToList();
+            NHibernateHelper.CloseSession();
+            ViewData["reportes"] = reportes;
             return View();
         }
     }

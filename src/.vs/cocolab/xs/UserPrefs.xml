@@ -1,11 +1,18 @@
 ﻿<Properties StartupConfiguration="{A4C67EB5-B4C0-4589-8F2E-1794E829FEBE}|">
   <MonoDevelop.Ide.ItemProperties.cocolab PreferredExecutionTarget="firefox" />
   <MonoDevelop.Ide.ItemProperties.cocolab.Tests FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="cocolab/Views/Ubicacion/Modificacion.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="cocolab/Views/Alumno/Index.cshtml">
     <Files>
-      <File FileName="cocolab/Views/Ubicacion/Modificacion.cshtml" Line="22" Column="14" />
-      <File FileName="cocolab/Views/Computadora/Modificacion.cshtml" Line="29" Column="1" />
-      <File FileName="cocolab/Controllers/UbicacionController.cs" Line="110" Column="43" />
+      <File FileName="cocolab/Views/Ubicacion/Modificacion.cshtml" Line="6" Column="2" />
+      <File FileName="cocolab/Views/Computadora/Modificacion.cshtml" Line="10" Column="116" />
+      <File FileName="cocolab/Controllers/UbicacionController.cs" Line="32" Column="16" />
+      <File FileName="cocolab/Models/ReporteDia.hbm.xml" Line="7" Column="1" />
+      <File FileName="cocolab/Controllers/EstadisticasController.cs" Line="31" Column="17" />
+      <File FileName="cocolab/Views/Estadisticas/Index.cshtml" Line="27" Column="6" />
+      <File FileName="cocolab/Views/Estadisticas/Hora.cshtml" Line="1" Column="1" />
+      <File FileName="cocolab/Views/Estadisticas/Carrera.cshtml" Line="28" Column="1" />
+      <File FileName="cocolab/Controllers/AlumnoController.cs" Line="19" Column="24" />
+      <File FileName="cocolab/Views/Alumno/Index.cshtml" Line="36" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <sql-query name="reportehora">
+    <return-scalar column="no_control" type="integer"/>
+    <return-scalar column="fecha_solicitud" type="DateTime"/>
+    <return-scalar column="fecha_finalizacion" type="DateTime"/>
+    <return-scalar column="uso" type="string" />
+    <return-scalar column="ubicacion" type="integer" />
+
+    select
+      *
+    from
+        public.reportehora();
+        
+  </sql-query>
+</hibernate-mapping>
+

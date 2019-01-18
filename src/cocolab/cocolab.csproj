@@ -222,6 +222,9 @@
     <Content Include="Views\Ubicacion\Index.cshtml" />
     <Content Include="Views\Ubicacion\Alta.cshtml" />
     <Content Include="Views\Ubicacion\Modificacion.cshtml" />
+    <EmbeddedResource Include="Models\ReporteHora.hbm.xml" />
+    <EmbeddedResource Include="Models\ReporteCarrera.hbm.xml" />
+    <Content Include="Views\Estadisticas\Hora.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

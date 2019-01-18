@@ -1,1 +1,27 @@
-﻿ok
+﻿@using cocolab.Models
+@{    
+    ViewBag.Title = "Estadísticas";
+    Layout = "~/Views/Shared/_Consulta.cshtml";
+}
+<form action="/estadisticas" method="POST">
+    <div class="form-row">
+        <div class="form-col">
+            <input class="form-control" type="text" name="IdCarrera" autofocus=""/>
+        </div>
+        <div class="form-col">
+            <input class="btn btn-secondary" type="submit" value="Buscar por carrera">
+        </div>
+        <div style="float:right;">
+            <a class="btn btn-primary" href="/estadisticas/hora">En esta hora</a> 
+        </div>
+    </div>
+</form>
+<br/>
+<ul class="list-group"> 
+@foreach (ReporteDia reportes in ViewData["reportes"] as List<ReporteDia>)
+{
+    <li class="list-group-item">
+        @reportes.no_control @reportes.fecha_solicitud @reportes.fecha_finalizacion @reportes.uso @reportes.ubicacion
+    </li>
+}
+</ul>
